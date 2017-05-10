@@ -1,31 +1,49 @@
 package com.company.多态;
-class Glyph{
-    void draw() {
-        System.out.println("Glyph.draw()");
-    }
 
+/**
+ * Created by OKMAN on 2017/5/8.
+ */
+import static net.mindview.util.Print.*;
+
+class Glyph {
+    void draw() { print("Glyph.draw()"); }
     Glyph() {
-        System.out.println("Glyth() before draw()");
+        print("Glyph() before draw()");
         draw();
-        System.out.println("Glyth() after draw()");
+        print("Glyph() after draw()");
     }
 }
-class RoundGlyph extends Glyph{
-    private int radius = 1;
-    RoundGlyph(int r){
-        super();
-        radius = r;
-        System.out.println("RoundGlyph.RoundGlyph() , radius = " + radius);
-    }
-    void draw(){
-        System.out.println("RondGlyph.draw() , radius = "+ radius);
-    }
-}
-class PolyConstructors{
-    public static void main(String args[]) {
-        new RoundGlyph(5);
-    }
-}
-public class T01 {
 
+class RoundGlyph extends Glyph {
+    private int radius = 1;
+    RoundGlyph(int r) {
+        radius = r;
+        print("RoundGlyph.RoundGlyph(), radius = " + radius);
+    }
+    void draw() {
+        print("RoundGlyph.draw(), radius = " + radius);
+    }
+}
+
+class RectangularGlyph extends Glyph {
+    private int length = 2;
+    private int width = 4;
+    RectangularGlyph(int l, int w) {
+        length = l;
+        width = w;
+        print("RectangularGlyph.RectangularGlyph(), length = "
+                + length + ", width = " + width);
+    }
+    void draw() {
+        print("RectangularGlyph.draw(), length = " + length
+                + ", width = " + width);
+    }
+}
+
+
+public class T01 {
+    public static void main(String[] args) {
+        new RoundGlyph(5);
+        new RectangularGlyph(3, 6);
+    }
 }
