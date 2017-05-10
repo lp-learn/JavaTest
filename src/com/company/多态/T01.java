@@ -16,7 +16,9 @@ class Glyph {
 
 class RoundGlyph extends Glyph {
     private int radius = 1;
+    private Glyph g = new Glyph();
     RoundGlyph(int r) {
+        //这里可能有一个隐藏的super();
         radius = r;
         print("RoundGlyph.RoundGlyph(), radius = " + radius);
     }
